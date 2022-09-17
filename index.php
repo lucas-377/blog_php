@@ -1,7 +1,11 @@
 <?php
 
+/**
+ * Blog home page
+ */
+
 require 'config.php';
-include '_articles.php';
+include 'src/Articles.php';
 
 $articles = new Articles($mysql);
 $articles = $articles->getAll();
@@ -22,7 +26,7 @@ $articles = $articles->getAll();
 
         <?php foreach ($articles as $article) : ?>
             <h2>
-                <a href="<?php echo $article["link"] ?>">
+                <a href="artigo.php?id=<?= $article['id'] ?>">
                     <?php echo $article["title"] ?>
                 </a>
             </h2>

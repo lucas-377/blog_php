@@ -2,15 +2,18 @@
 
 class Articles
 {
-  private $mysql;
+  private $mysql; // Database connection object
 
+  /**
+   * Create database connection object on class instantiation
+   */
   public function __construct(mysqli $mysql)
   {
     $this->mysql = $mysql;
   }
 
   /**
-   * Return all blog articles
+   * Return all blog articles from database
    */
   public function getAll(): array
   {
