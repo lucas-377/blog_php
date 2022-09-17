@@ -3,6 +3,12 @@
 /**
  * Article structure page
  */
+
+require 'config.php';
+include 'src/Articles.php';
+
+$article_obj = new Articles($mysql);
+$article = $article_obj->getOne($_GET['id']);
 ?>
 
 <!DOCTYPE html>
@@ -17,11 +23,11 @@
 <body>
   <div id="container">
     <h1>
-      Titulo
+      <?php echo $article['title'] ?>
     </h1>
 
     <p>
-      Descricao
+      <?php echo $article['text'] ?>
     </p>
 
     <div>

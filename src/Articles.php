@@ -22,4 +22,21 @@ class Articles
 
     return $articles;
   }
+
+  /**
+   * Return a single blog article from database
+   */
+  public function getOne(string $id): array
+  {
+    // Prepare query to prevent mysql injections
+    $result = $this->mysql->prepare(
+      "SELECT id, titulo as title, conteudo as text FROM artigos WHERE id = ?"
+    );
+
+    $result->bind_param('s', $id);
+    $result->execute();
+    $result = $result->get_result()->fetch_assoc();
+
+    return $result;
+  }
 }
