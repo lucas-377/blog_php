@@ -39,4 +39,17 @@ class Articles
 
     return $result;
   }
+
+  /**
+   * Create new article on database
+   */
+  public function createArticle(string $title, string $text): void
+  {
+    $result = $this->mysql->prepare(
+      "INSERT INTO artigos (titulo, conteudo) VALUES(?,?)"
+    );
+
+    $result->bind_param('ss', $title, $text);
+    $result->execute();
+  }
 }

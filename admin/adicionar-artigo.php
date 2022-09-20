@@ -1,3 +1,19 @@
+<?php
+
+/**
+ * Add article page
+ */
+
+require '../config.php';
+include '../src/Articles.php';
+
+// Add article to database only if method is post
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $article = new Articles($mysql);
+    $article->createArticle($_POST['titulo'], $_POST['conteudo']);
+}
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -10,7 +26,7 @@
 <body>
     <div id="container">
         <h1>Adicionar Artigo</h1>
-        <form action="adicionar-artigo.html" method="post">
+        <form action="adicionar-artigo.php" method="post">
             <p>
                 <label for="">Digite o título do artigo</label>
                 <input class="campo-form" type="text" name="titulo" id="titulo" />
