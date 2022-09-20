@@ -29,8 +29,8 @@ $articles = $articles->getAll();
                 <div id="artigo-admin">
                     <p><?= $article["title"] ?></p>
                     <nav>
-                        <a class="botao" href="./editar-artigo.html?id=<?= $article['id']; ?>">Editar</a>
-                        <a class="botao" href="./excluir-artigo.html?id=<?= $article['id']; ?>">Excluir</a>
+                        <a class="botao" href="./editar-artigo.php?id=<?= $article['id']; ?>">Editar</a>
+                        <a class="botao" href="./excluir-artigo.php?id=<?= $article['id']; ?>">Excluir</a>
                     </nav>
                 </div>
             <?php endforeach; ?>

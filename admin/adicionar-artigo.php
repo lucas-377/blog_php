@@ -6,6 +6,7 @@
 
 require '../config.php';
 include '../src/Articles.php';
+require '../src/redirect.php';
 
 // Add article to database only if method is post
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -13,8 +14,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $article->createArticle($_POST['titulo'], $_POST['conteudo']);
 
     // Post redirect Get
-    header('Location: index.php');
-    die();
+    redirect('index.php');
 }
 ?>
 

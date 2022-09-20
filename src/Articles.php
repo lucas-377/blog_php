@@ -52,4 +52,17 @@ class Articles
     $result->bind_param('ss', $title, $text);
     $result->execute();
   }
+
+  /**
+   * Delete article from database
+   */
+  public function deleteArticle(string $id): void
+  {
+    $result = $this->mysql->prepare(
+      "DELETE FROM artigos WHERE id = ?"
+    );
+
+    $result->bind_param('s', $id);
+    $result->execute();
+  }
 }
