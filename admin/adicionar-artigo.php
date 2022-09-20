@@ -11,6 +11,10 @@ include '../src/Articles.php';
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $article = new Articles($mysql);
     $article->createArticle($_POST['titulo'], $_POST['conteudo']);
+
+    // Post redirect Get
+    header('Location: adicionar-artigo.php');
+    die();
 }
 ?>
 
