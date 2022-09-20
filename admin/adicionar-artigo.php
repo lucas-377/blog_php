@@ -13,7 +13,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $article->createArticle($_POST['titulo'], $_POST['conteudo']);
 
     // Post redirect Get
-    header('Location: adicionar-artigo.php');
+    header('Location: index.php');
     die();
 }
 ?>
