@@ -32,7 +32,7 @@ $articles = $articles->getAll();
             </h2>
 
             <p>
-                <?php echo $article["text"] ?>
+                <?php echo nl2br($article["text"]) ?>
             </p>
         <?php endforeach; ?>
     </div>

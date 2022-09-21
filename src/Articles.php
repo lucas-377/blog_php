@@ -65,4 +65,17 @@ class Articles
     $result->bind_param('s', $id);
     $result->execute();
   }
+
+  /**
+   * Update article from database
+   */
+  public function updateArticle(string $id, string $title, string $text): void
+  {
+    $result = $this->mysql->prepare(
+      "UPDATE artigos SET titulo = ?, conteudo = ? WHERE id = ?"
+    );
+
+    $result->bind_param('sss', $title, $text, $id);
+    $result->execute();
+  }
 }

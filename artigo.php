@@ -27,7 +27,7 @@ $article = $article_obj->getOne($_GET['id']);
     </h1>
 
     <p>
-      <?php echo $article['text'] ?>
+      <?php echo nl2br($article['text']) ?>
     </p>
 
     <div>
